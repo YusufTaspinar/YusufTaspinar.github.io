@@ -1,54 +1,58 @@
 <!Doctype html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <title>Bokmappe</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-<body>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+    <body>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyB2EoYLcwVETmWY1wweA4qltrKx6fS8U3Q",
-    authDomain: "fir-1-d4e21.firebaseapp.com",
-    databaseURL: "https://fir-1-d4e21.firebaseio.com",
-    projectId: "fir-1-d4e21",
-    storageBucket: "fir-1-d4e21.appspot.com",
-    messagingSenderId: "358850519616",
-    appId: "1:358850519616:web:813380c91b73cfc4fd75a5"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+        
+<section id="bokmappe">
+    <div id="Over">
+        <br>
+        <h1>Bokmappe</h1>
+            </div>
     
-    let db=firebase.database();
+    <div id="info"><p>Her er en bokmappe, der du kan lagre informasjon fra alle bøker du har lest. Skriv inn informasjonen til boken, og den vil bli lagret i databasen.
+        </p>
+    </div>
     
-    let besokbok= db.ref("besokbok")
-        function submit_data(){
-            var navn_In= document.getElementById("txtNavn").value
-            var beskjed_In= document.getElementById("txtBeskjed").value
-            
-            let new_object=besokbok.cild(navn_In)
-            new_object.set({                txtNavn:navn_In,
-                txtBeskjed:beskjed_In
-            });
-        }
-    </script>
-           <section id="gjestebok">
-            <h2 id="title">Gjestebok</h2>
-            <p id="info">Skriv inn navnet ditt, og en beskjed</p>
-            <form>
-                Navn:
-                <input id="txtNavn" type="text">
-                Beskjed:
-                <input id="txtBeskjed" type="text">
-                <input submit type="submit" onclick="submit_data()" value="Send Inn!">
-            </form>
-        <div id="output"></div>
+    <form>
+        Title:
+        <input id="txtTitle" type="text">
+        <br>
+        Utgivelsesår: 
+        <input id="dtUt" type="date">
+        <br>
+        Navn på forfatter: 
+        <input id="txtFat" type="text">
+        <br>
+        Forlag:
+        <input id="txtFor" type="text">
+        <br>
+        Min vurdering av boken:
+        <input id="Rat" type="number" min="1" max="6">
+        <br>
+        <input type="submit" onclick="submit_data()" value="Send Inn!" id="btn">
+    
+    </form>
+    <button onclick="sendToGitHub()"> Send meg til GitHub</button>
+    
+    <img src="Gyldendal-600x600.png" id="gyl">
+    <img src="Aschehoug.jpg" id="asc">
+    
+    
         </section>
+
+<script src="app.js">
+</script>
     </body>
+
 </html>
